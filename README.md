@@ -99,6 +99,31 @@ SQL Server Database
 
 ---
 
+## Screenshots
+
+### Login Page
+![Login Page](screenshots/login-page.JPG)
+
+### Registration Page
+![Registration Page](screenshots/register-page.JPG)
+
+### Dashboard
+![Dashboard](screenshots/dashboard.JPG)
+
+### Fraud Prediction Result
+![Fraud Prediction Result](screenshots/fraud-prediction-result.JPG)
+
+### Safe Transaction Result
+![Safe Transaction Result](screenshots/safe-prediction-result.JPG)
+
+### Transaction History
+![Transaction History](screenshots/transaction-history.JPG)
+
+### Analytics Dashboard
+![Analytics Dashboard](screenshots/analytics-dashboard.JPG)
+
+---
+
 ## Backend Architecture
 
 ### Controllers
