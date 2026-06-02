@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudDetection.ML", "FraudDetection.ML\FraudDetection.ML.csproj", "{E6728D5D-EBBC-4E11-842E-4A65F5DD982D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudDetection.Api", "FraudDetection.Api\FraudDetection.Api.csproj", "{B94C509B-7D08-4AB0-BA6B-83BE49C8A516}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FraudDetection.UI", "FraudDetection.UI", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		frontend\FrausDetection.UI\eslint.config.js = frontend\FrausDetection.UI\eslint.config.js
+		frontend\FrausDetection.UI\index.html = frontend\FrausDetection.UI\index.html
+		frontend\FrausDetection.UI\package-lock.json = frontend\FrausDetection.UI\package-lock.json
+		frontend\FrausDetection.UI\package.json = frontend\FrausDetection.UI\package.json
+		frontend\FrausDetection.UI\README.md = frontend\FrausDetection.UI\README.md
+		frontend\FrausDetection.UI\vite.config.js = frontend\FrausDetection.UI\vite.config.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AB94D0CA-5674-4449-9347-C3AB0FBDCDDA}"
+	ProjectSection(SolutionItems) = preProject
+		frontend\FrausDetection.UI\src\App.css = frontend\FrausDetection.UI\src\App.css
+		frontend\FrausDetection.UI\src\App.jsx = frontend\FrausDetection.UI\src\App.jsx
+		frontend\FrausDetection.UI\src\axiosConfig.jsx = frontend\FrausDetection.UI\src\axiosConfig.jsx
+		frontend\FrausDetection.UI\src\index.css = frontend\FrausDetection.UI\src\index.css
+		frontend\FrausDetection.UI\src\main.jsx = frontend\FrausDetection.UI\src\main.jsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{6986A43A-6D1B-4201-A8DD-8F1C2B4EC47C}"
+	ProjectSection(SolutionItems) = preProject
+		frontend\FrausDetection.UI\src\components\AnalyticsCards.css = frontend\FrausDetection.UI\src\components\AnalyticsCards.css
+		frontend\FrausDetection.UI\src\components\AnalyticsCards.jsx = frontend\FrausDetection.UI\src\components\AnalyticsCards.jsx
+		frontend\FrausDetection.UI\src\components\FraudPieChart.jsx = frontend\FrausDetection.UI\src\components\FraudPieChart.jsx
+		frontend\FrausDetection.UI\src\components\FraudTrendChart.jsx = frontend\FrausDetection.UI\src\components\FraudTrendChart.jsx
+		frontend\FrausDetection.UI\src\components\LoadingSpinner.jsx = frontend\FrausDetection.UI\src\components\LoadingSpinner.jsx
+		frontend\FrausDetection.UI\src\components\Navbar.jsx = frontend\FrausDetection.UI\src\components\Navbar.jsx
+		frontend\FrausDetection.UI\src\components\PredictionCard.css = frontend\FrausDetection.UI\src\components\PredictionCard.css
+		frontend\FrausDetection.UI\src\components\PredictionCard.jsx = frontend\FrausDetection.UI\src\components\PredictionCard.jsx
+		frontend\FrausDetection.UI\src\components\ProtectedRoute.jsx = frontend\FrausDetection.UI\src\components\ProtectedRoute.jsx
+		frontend\FrausDetection.UI\src\components\TransactionHistoryTable.css = frontend\FrausDetection.UI\src\components\TransactionHistoryTable.css
+		frontend\FrausDetection.UI\src\components\TransactionHistoryTable.jsx = frontend\FrausDetection.UI\src\components\TransactionHistoryTable.jsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pages", "pages", "{A205D86D-1C6D-4248-87E8-8C191A928F7C}"
+	ProjectSection(SolutionItems) = preProject
+		frontend\FrausDetection.UI\src\pages\HistoryPage.jsx = frontend\FrausDetection.UI\src\pages\HistoryPage.jsx
+		frontend\FrausDetection.UI\src\pages\HomePage.jsx = frontend\FrausDetection.UI\src\pages\HomePage.jsx
+		frontend\FrausDetection.UI\src\pages\LoginPage.jsx = frontend\FrausDetection.UI\src\pages\LoginPage.jsx
+		frontend\FrausDetection.UI\src\pages\RegisterPage.jsx = frontend\FrausDetection.UI\src\pages\RegisterPage.jsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6728D5D-EBBC-4E11-842E-4A65F5DD982D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6728D5D-EBBC-4E11-842E-4A65F5DD982D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6728D5D-EBBC-4E11-842E-4A65F5DD982D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6728D5D-EBBC-4E11-842E-4A65F5DD982D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94C509B-7D08-4AB0-BA6B-83BE49C8A516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94C509B-7D08-4AB0-BA6B-83BE49C8A516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94C509B-7D08-4AB0-BA6B-83BE49C8A516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94C509B-7D08-4AB0-BA6B-83BE49C8A516}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB94D0CA-5674-4449-9347-C3AB0FBDCDDA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{6986A43A-6D1B-4201-A8DD-8F1C2B4EC47C} = {AB94D0CA-5674-4449-9347-C3AB0FBDCDDA}
+		{A205D86D-1C6D-4248-87E8-8C191A928F7C} = {AB94D0CA-5674-4449-9347-C3AB0FBDCDDA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FECC03E-6B39-41F2-A0DF-9FDB8740462F}
+	EndGlobalSection
+EndGlobal

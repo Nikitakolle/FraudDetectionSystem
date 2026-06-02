@@ -1,0 +1,39 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Logs
+*.log
+
+# Node
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# ML.NET outputs
+Output/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# React env files
+.env
+.env.*
+
+# VS Code
+.vscode/
+
+# Packages
+packages/
+
+# SQL LocalDB
+*.mdf
+*.ldf
