@@ -36,8 +36,8 @@ var results = new List<ModelResult>();
 
 string trainPath = Path.Combine(
     Environment.CurrentDirectory,
-    "Data",
-    "transactions_train.csv");
+    "BalancedData",
+    "balanced_transactions_train.csv");
 
 string testPath = Path.Combine(
     Environment.CurrentDirectory,

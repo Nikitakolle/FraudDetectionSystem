@@ -63,11 +63,13 @@ namespace FraudDetection.ML.BalancedData
 
             balancedRows.AddRange(nonFraudRows);
 
-           
-            for (int i = 0; i < 5; i++)
+            int multiplier = nonFraudRows.Count / fraudRows.Count;
+
+            for (int i = 0; i < multiplier; i++)
             {
                 balancedRows.AddRange(fraudRows);
             }
+            
 
             Console.WriteLine($"Balanced Rows: {balancedRows.Count}");
 
