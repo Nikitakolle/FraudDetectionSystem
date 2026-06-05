@@ -37,3 +37,6 @@ packages/
 # SQL LocalDB
 *.mdf
 *.ldf
+
+.ipynb_checkpoints/
+anaconda_projects/

@@ -17,18 +17,22 @@ Evaluation Metrics:
 - F1 Score
 - AUC
 
+
 Selected Production Model:
 LightGBM
 
 Reason:
-Highest F1 Score among all evaluated models.
-
-Used in ASP.NET API:
-fraud_model_lightgbm.zip
+Comparable performance to FastTree with higher precision
+and chosen as the deployment model for the ASP.NET API.
 ---------------------------------------------------
 */
 
 var mlContext = new MLContext(seed: 42);
+string resultsDir = Path.Combine(
+    Environment.CurrentDirectory,
+    "Results");
+
+Directory.CreateDirectory(resultsDir);
 
 var results = new List<ModelResult>();
 
@@ -148,6 +152,17 @@ mlContext.Model.Save(
 Console.WriteLine(
     $"LightGBM model saved at: {lightGbmModelPath}");
 
+var matrix =
+    GenerateConfusionMatrix(
+        lightGbmModel,
+        testData,
+        mlContext);
+
+SaveConfusionMatrixCsv(
+    matrix,
+    Path.Combine(
+        resultsDir,
+        "confusion_matrix.csv"));
 // ================= SDCA LOGISTIC REGRESSION =================
 
 var sdcaPipeline =
@@ -206,7 +221,11 @@ foreach (var result in results)
     Console.WriteLine(
         $"AUC      : {result.AUC:P2}");
 }
-
+SaveModelComparisonCsv(
+    results,
+    Path.Combine(
+        resultsDir,
+        "model_comparison.csv"));
 // ================= HELPER METHOD =================
 
 static ModelResult TrainAndEvaluate(
@@ -251,5 +270,102 @@ static ModelResult TrainAndEvaluate(
         Recall = metrics.PositiveRecall,
         F1Score = metrics.F1Score,
         AUC = metrics.AreaUnderRocCurve
+    };
+}
+
+static void SaveModelComparisonCsv(
+    List<ModelResult> results,
+    string outputPath)
+{
+    using var writer =
+        new StreamWriter(outputPath);
+
+    writer.WriteLine(
+        "Model,Accuracy,Precision,Recall,F1Score,AUC");
+
+    foreach (var result in results)
+    {
+        writer.WriteLine(
+            $"{result.ModelName}," +
+            $"{result.Accuracy * 100:F2}," +
+            $"{result.Precision * 100:F2}," +
+            $"{result.Recall * 100:F2}," +
+            $"{result.F1Score * 100:F2}," +
+            $"{result.AUC * 100:F2}");
+    }
+    
+    Console.WriteLine(
+        "\nmodel_comparison.csv created successfully.");
+
+}
+
+static void SaveConfusionMatrixCsv(
+    ConfusionMatrixResult matrix,
+    string outputPath)
+{
+    using var writer =
+        new StreamWriter(outputPath);
+
+    writer.WriteLine(
+        "Metric,Value");
+
+    writer.WriteLine(
+        $"True Positive,{matrix.TruePositive}");
+
+    writer.WriteLine(
+        $"True Negative,{matrix.TrueNegative}");
+
+    writer.WriteLine(
+        $"False Positive,{matrix.FalsePositive}");
+
+    writer.WriteLine(
+        $"False Negative,{matrix.FalseNegative}");
+}
+
+static ConfusionMatrixResult GenerateConfusionMatrix(
+    ITransformer model,
+    IDataView testData,
+    MLContext mlContext)
+{
+    var predictions =
+        model.Transform(testData);
+
+    var rows =
+        mlContext.Data
+                 .CreateEnumerable<FraudPrediction>(
+                     predictions,
+                     reuseRowObject: false)
+                 .ToList();
+
+    int tp = 0;
+    int tn = 0;
+    int fp = 0;
+    int fn = 0;
+
+    foreach (var row in rows)
+    {
+        if (row.ActualLabel &&
+            row.PredictedLabel)
+            tp++;
+
+        else if (!row.ActualLabel &&
+                 !row.PredictedLabel)
+            tn++;
+
+        else if (!row.ActualLabel &&
+                 row.PredictedLabel)
+            fp++;
+
+        else if (row.ActualLabel &&
+                 !row.PredictedLabel)
+            fn++;
+    }
+
+    return new ConfusionMatrixResult
+    {
+        TruePositive = tp,
+        TrueNegative = tn,
+        FalsePositive = fp,
+        FalseNegative = fn
     };
 }
